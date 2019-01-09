@@ -1,0 +1,153 @@
+>>> len('ABC')
+3
+>>> len('中文')
+2
+
+>>> len(b'ABC')
+3
+>>> len(b'\xe4\xb8\xad\xe6\x96\x87')
+6
+>>> len('中文'.encode('utf-8'))
+6
+
+>>> 'Hello, %s' % 'world' #格式化
+'Hello, world'
+>>> 'Hi, %s, you have $%d.' % ('Michael', 1000000)
+'Hi, Michael, you have $1000000.'
+
+print('%2d-%02d' % (3, 1))
+print('%.2f' % 3.1415926)
+
+>>> 'Age: %s. Gender: %s' % (25, True)
+'Age: 25. Gender: True'
+
+>>> 'growth rate: %d %%' % 7
+'growth rate: 7 %'
+
+>>> 'Hello, {0}, 成绩提升了 {1:.1f}%'.format('小明', 17.125)
+'Hello, 小明, 成绩提升了 17.1%'
+
+>>> classmates = ['Michael', 'Bob', 'Tracy']
+>>> classmates
+['Michael', 'Bob', 'Tracy']
+
+>>> len(classmates)
+3
+
+>>> classmates[0]
+'Michael'
+>>> classmates[1]
+'Bob'
+>>> classmates[2]
+'Tracy'
+>>> classmates[3]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list index out of range
+
+>>> classmates[-1]
+'Tracy'
+
+>>> classmates[-2]
+'Bob'
+>>> classmates[-3]
+'Michael'
+>>> classmates[-4]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list index out of range
+
+>>> classmates.append('Adam')
+>>> classmates
+['Michael', 'Bob', 'Tracy', 'Adam']
+
+
+>>> classmates.insert(1, 'Jack')
+>>> classmates
+['Michael', 'Jack', 'Bob', 'Tracy', 'Adam']
+
+
+>>> classmates.pop()
+'Adam'
+>>> classmates
+['Michael', 'Jack', 'Bob', 'Tracy']
+
+>>> classmates.pop(1)
+'Jack'
+>>> classmates
+['Michael', 'Bob', 'Tracy']
+
+>>> classmates[1] = 'Sarah'
+>>> classmates
+['Michael', 'Sarah', 'Tracy]
+
+>>> L = ['Apple', 123, True]
+
+>>> s = ['python', 'java', ['asp', 'php'], 'scheme']
+>>> len(s)
+s
+
+>>> p = ['asp', 'php']
+>>> s = ['python', 'java', p, 'scheme']
+
+>>> L = []
+>>> len(L)
+0
+
+>>> classmates = ('Michael', 'Bob', 'Tracy')
+
+>>> t = (1, 2)
+>>> t
+(1, 2)
+
+
+>>> t = ()
+>>> t
+()
+
+>>> t = (1)
+>>> t
+1
+
+
+>>> t = (1,)
+>>> t
+(1,)
+
+>>> t = ('a', 'b', ['A', 'B'])
+>>> t[2][0] = 'X'
+>>> t[2][1] = 'Y'
+>>> t
+('a', 'b', ['X', 'Y'])
+# 判断语句
+age = 20
+if age >= 18:
+    print('your age is', age)
+    print('adult')
+    
+age = 3
+if age >= 18:
+    print('your age is', age)
+    print('adult')
+else:
+    print('your age is', age)
+    print('teenager')
+    
+
+age = 3
+if age >= 18:
+    print('adult')
+elif age >= 6:
+    print('teenager')
+else:
+    print('kid')
+    
+
+if x:
+    print('True')
+    
+birth = input('birth: ')
+if birth < 2000:
+    print('00前')
+else:
+    print('00后')
