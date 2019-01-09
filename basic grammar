@@ -119,7 +119,11 @@ s
 >>> t[2][1] = 'Y'
 >>> t
 ('a', 'b', ['X', 'Y'])
+
+
 # 判断语句
+
+
 age = 20
 if age >= 18:
     print('your age is', age)
@@ -151,3 +155,456 @@ if birth < 2000:
     print('00前')
 else:
     print('00后')
+    
+s = input('birth: ')
+birth = int(s)
+if birth < 2000:
+    print('00前')
+else:
+    print('00后')
+  
+  
+# 循环语句
+>>> 1 + 2 + 3
+6
+
+names = ['Michael', 'Bob', 'Tracy']
+for name in names:
+    print(name)
+    
+sum = 0
+for x in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:
+    sum = sum + x
+print(sum)
+
+>>> list(range(5))
+[0, 1, 2, 3, 4]
+
+sum = 0
+n = 99
+while n > 0:
+    sum = sum + n
+    n = n - 2
+print(sum)
+
+n = 1
+while n <= 100:
+    print(n)
+    n = n + 1
+print('END')
+
+n = 1
+while n <= 100:
+    if n > 10: # 当n = 11时，条件满足，执行break语句
+        break # break语句会结束当前循环
+    print(n)
+    n = n + 1
+print('END')
+
+n = 0
+while n < 10:
+    n = n + 1
+    print(n)
+    
+n = 0
+while n < 10:
+    n = n + 1
+    if n % 2 == 0: # 如果n是偶数，执行continue语句
+        continue # continue语句会直接继续下一轮循环，后续的print()语句不会执行
+    print(n)
+    
+# dict
+
+names = ['Michael', 'Bob', 'Tracy']
+scores = [95, 75, 85]
+
+>>> d = {'Michael': 95, 'Bob': 75, 'Tracy': 85}
+>>> d['Michael']
+95
+
+>>> d['Adam'] = 67
+>>> d['Adam']
+67
+
+>>> d['Jack'] = 90
+>>> d['Jack']
+90
+>>> d['Jack'] = 88
+>>> d['Jack']
+88
+
+>>> 'Thomas' in d
+False
+
+>>> d.get('Thomas')
+>>> d.get('Thomas', -1)
+-1
+
+>>> d.pop('Bob')
+75
+>>> d
+{'Michael': 95, 'Tracy': 85}
+
+# set
+
+>>> s = set([1, 2, 3])
+>>> s
+{1, 2, 3}
+
+>>> s = set([1, 1, 2, 2, 3, 3])
+>>> s
+{1, 2, 3}
+
+
+>>> s.add(4)
+>>> s
+{1, 2, 3, 4}
+>>> s.add(4)
+>>> s
+{1, 2, 3, 4}
+
+>>> s.remove(4)
+>>> s
+{1, 2, 3}
+
+
+>>> s1 = set([1, 2, 3])
+>>> s2 = set([2, 3, 4])
+>>> s1 & s2
+{2, 3}
+>>> s1 | s2
+{1, 2, 3, 4}
+
+
+# 数组
+
+
+>>> a = ['c', 'b', 'a']
+>>> a.sort()
+>>> a
+['a', 'b', 'c']
+
+>>> a = 'abc'
+>>> a.replace('a', 'A')
+'Abc'
+>>> a
+'abc'
+
+
+>>> a = 'abc'
+>>> b = a.replace('a', 'A')
+>>> b
+'Abc'
+>>> a
+'abc'
+
+# 调用函数
+
+
+>>> abs(100)
+100
+>>> abs(-20)
+20
+>>> abs(12.34)
+12.34
+
+>>> abs(1, 2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: abs() takes exactly one argument (2 given)
+
+
+>>> abs('a')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: bad operand type for abs(): 'str'
+
+
+>>> max(1, 2)
+2
+>>> max(2, 3, 1, -5)
+3
+
+>>> int('123')
+123
+>>> int(12.34)
+12
+>>> float('12.34')
+12.34
+>>> str(1.23)
+'1.23'
+>>> str(100)
+'100'
+>>> bool(1)
+True
+>>> bool('')
+False
+
+
+>>> a = abs # 变量a指向abs函数
+>>> a(-1) # 所以也可以通过a调用abs函数
+1
+
+def my_abs(x):
+    if x >= 0:
+        return x
+    else:
+        return -x
+        
+def nop():
+    pass
+    
+def my_abs(x):
+    if not isinstance(x, (int, float)):
+        raise TypeError('bad operand type')
+    if x >= 0:
+        return x
+    else:
+        return -x
+        
+import math
+ 
+def move(x, y, step, angle=0):
+    nx = x + step * math.cos(angle)
+    ny = y - step * math.sin(angle)
+    return nx, ny
+    
+
+>>> x, y = move(100, 100, 60, math.pi / 6)
+>>> print(x, y)
+151.96152422706632 70.0
+
+
+>>> r = move(100, 100, 60, math.pi / 6)
+>>> print(r)
+(151.96152422706632, 70.0)
+
+# 函数参数
+
+def power(x):
+    return x * x
+    
+
+>>> power(5)
+25
+>>> power(15)
+225
+
+def power(x, n):
+    s = 1
+    while n > 0:
+        n = n - 1
+        s = s * x
+    return s
+
+>>> power(5, 2)
+25
+>>> power(5, 3)
+125
+
+def power(x, n=2):
+    s = 1
+    while n > 0:
+        n = n - 1
+        s = s * x
+    return s
+
+>>> power(5)
+25
+>>> power(5, 2)
+25
+
+def enroll(name, gender):
+    print('name:', name)
+    print('gender:', gender)
+
+>>> enroll('Sarah', 'F')
+name: Sarah
+gender: F
+
+def enroll(name, gender, age=6, city='Beijing'):
+    print('name:', name)
+    print('gender:', gender)
+    print('age:', age)
+    print('city:', city)
+
+>>> enroll('Sarah', 'F')
+name: Sarah
+gender: F
+age: 6
+city: Beijing
+
+enroll('Bob', 'M', 7)
+enroll('Adam', 'M', city='Tianjin')
+
+def add_end(L=[]):
+    L.append('END')
+    return L
+
+>>> add_end([1, 2, 3])
+[1, 2, 3, 'END']
+>>> add_end(['x', 'y', 'z'])
+['x', 'y', 'z', 'END']
+
+>>> add_end()
+['END']
+
+>>> add_end()
+['END']
+
+>>> add_end()
+['END', 'END']
+>>> add_end()
+['END', 'END', 'END']
+
+def add_end(L=None):
+    if L is None:
+        L = []
+    L.append('END')
+    return L
+
+>>> add_end()
+['END']
+>>> add_end()
+['END']
+
+# 可变参数
+
+def calc(numbers):
+    sum = 0
+    for n in numbers:
+        sum = sum + n * n
+    return sum
+
+>>> calc([1, 2, 3])
+14
+>>> calc((1, 3, 5, 7))
+84
+
+>>> calc(1, 2, 3)
+14
+>>> calc(1, 3, 5, 7)
+84
+
+def calc(*numbers):
+    sum = 0
+    for n in numbers:
+        sum = sum + n * n
+    return sum
+
+>>> calc(1, 2)
+5
+>>> calc()
+0
+
+>>> nums = [1, 2, 3]
+>>> calc(nums[0], nums[1], nums[2])
+14
+
+>>> nums = [1, 2, 3]
+>>> calc(*nums)
+14
+
+# 关键字参数
+
+def person(name, age, **kw):
+    print('name:', name, 'age:', age, 'other:', kw)
+
+>>> person('Michael', 30)
+name: Michael age: 30 other: {}
+
+
+>>> person('Bob', 35, city='Beijing')
+name: Bob age: 35 other: {'city': 'Beijing'}
+>>> person('Adam', 45, gender='M', job='Engineer')
+name: Adam age: 45 other: {'gender': 'M', 'job': 'Engineer'}
+
+>>> extra = {'city': 'Beijing', 'job': 'Engineer'}
+>>> person('Jack', 24, city=extra['city'], job=extra['job'])
+name: Jack age: 24 other: {'city': 'Beijing', 'job': 'Engineer'}
+
+>>> extra = {'city': 'Beijing', 'job': 'Engineer'}
+>>> person('Jack', 24, **extra)
+name: Jack age: 24 other: {'city': 'Beijing', 'job': 'Engineer'}
+
+
+# 命名关键字参数
+def person(name, age, **kw):
+    if 'city' in kw:
+        # 有city参数
+        pass
+    if 'job' in kw:
+        # 有job参数
+        pass
+    print('name:', name, 'age:', age, 'other:', kw)
+
+>>> person('Jack', 24, city='Beijing', addr='Chaoyang', zipcode=123456)
+
+def person(name, age, *, city, job):
+    print(name, age, city, job)
+
+>>> person('Jack', 24, city='Beijing', job='Engineer')
+Jack 24 Beijing Engineer
+
+def person(name, age, *args, city, job):
+    print(name, age, args, city, job)
+
+def person(name, age, *, city='Beijing', job):
+    print(name, age, city, job)
+
+>>> person('Jack', 24, job='Engineer')
+Jack 24 Beijing Engineer
+
+def person(name, age, city, job):
+    # 缺少 *，city和job被视为位置参数
+    pass
+    
+
+def f1(a, b, c=0, *args, **kw):
+    print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
+def f2(a, b, c=0, *, d, **kw):
+    print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'kw =', kw)
+
+>>> f1(1, 2)
+a = 1 b = 2 c = 0 args = () kw = {}
+>>> f1(1, 2, c=3)
+a = 1 b = 2 c = 3 args = () kw = {}
+>>> f1(1, 2, 3, 'a', 'b')
+a = 1 b = 2 c = 3 args = ('a', 'b') kw = {}
+>>> f1(1, 2, 3, 'a', 'b', x=99)
+a = 1 b = 2 c = 3 args = ('a', 'b') kw = {'x': 99}
+>>> f2(1, 2, d=99, ext=None)
+a = 1 b = 2 c = 0 d = 99 kw = {'ext': None}
+
+>>> args = (1, 2, 3, 4)
+>>> kw = {'d': 99, 'x': '#'}
+>>> f1(*args, **kw)
+a = 1 b = 2 c = 3 args = (4,) kw = {'d': 99, 'x': '#'}
+>>> args = (1, 2, 3)
+>>> kw = {'d': 88, 'x': '#'}
+>>> f2(*args, **kw)
+a = 1 b = 2 c = 3 d = 88 kw = {'x': '#'}
+
+# 递归函数
+
+def fact(n):
+    if n==1:
+        return 1
+    return n * fact(n - 1)
+
+def fact(n):
+    return fact_iter(n, 1)
+ 
+def fact_iter(num, product):
+    if num == 1:
+        return product
+    return fact_iter(num - 1, num * product)
+
+===> fact_iter(5, 1)
+===> fact_iter(4, 5)
+===> fact_iter(3, 20)
+===> fact_iter(2, 60)
+===> fact_iter(1, 120)
+===> 120
+
+
